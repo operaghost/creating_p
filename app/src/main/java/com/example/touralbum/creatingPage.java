@@ -1,4 +1,4 @@
-package com.example.creating_p;
+package com.example.touralbum;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,27 +18,27 @@ import android.widget.Toast;
 
 import static android.text.InputType.TYPE_NULL;
 
-public class MainActivity extends AppCompatActivity {
+public class creatingPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.creating);
         ImageButton add_button = findViewById(R.id.adding);
         add_button.setOnClickListener(v -> {
             //jump to friendlist
-            Toast.makeText(MainActivity.this, "跳转到好友列表", Toast.LENGTH_SHORT).show();
+            Toast.makeText(creatingPage.this, "跳转到好友列表", Toast.LENGTH_SHORT).show();
         });
         RadioGroup visibility = findViewById(R.id.visible);
         visibility.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton r = findViewById(checkedId);
             //r.getText();//获取被选中的单选按钮的值
-            Toast.makeText(MainActivity.this, r.getText() , Toast.LENGTH_SHORT).show();
+            Toast.makeText(creatingPage.this, r.getText() , Toast.LENGTH_SHORT).show();
         });
         ImageButton create_btn = findViewById(R.id.create_btn);
         create_btn.setOnClickListener(v -> {
             //jump to sharedEvent
-            Toast.makeText(MainActivity.this,"创建成功",Toast.LENGTH_LONG).show();
+            Toast.makeText(creatingPage.this,"创建成功",Toast.LENGTH_LONG).show();
         });
 
         EditText event_name = findViewById(R.id.trip_title);
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             //save tripTitle
             InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(event_name.getWindowToken(),0);
-            Toast.makeText(MainActivity.this, tripTitle, Toast.LENGTH_SHORT).show();
+            Toast.makeText(creatingPage.this, tripTitle, Toast.LENGTH_SHORT).show();
             return false;
         });
 
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             //save tripDate
             InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(time.getWindowToken(),0);
-            Toast.makeText(MainActivity.this, tripDate, Toast.LENGTH_SHORT).show();
+            Toast.makeText(creatingPage.this, tripDate, Toast.LENGTH_SHORT).show();
             return false;
         });
 
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(location.getWindowToken(), 0);
             location.setInputType(TYPE_NULL);
-            Toast.makeText(MainActivity.this, loca, Toast.LENGTH_SHORT).show();
+            Toast.makeText(creatingPage.this, loca, Toast.LENGTH_SHORT).show();
             return false;
         });
 
